@@ -13,7 +13,7 @@ active
     <div class="box">
         <div class="box-header">
             <a href="buku/add"><button type="button" class="btn bg-green btn-flat margin">Add New</button></a>
-        <table id="example2" class="table table-bordered table-hover">
+        <table id="example1" class="table table-bordered table-hover">
             <thead>
                 <tr>
                   <th>#</th>

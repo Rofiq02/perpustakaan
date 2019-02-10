@@ -10,12 +10,15 @@ use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 
 use App\MAnggota;
+use App\MTampil;
 
 class TransaksiControl extends Controller
 {
     //
     function peminjaman(Request $req){
         
+        $tampil = MTampil::all();
+        // dd($tampil);
         if(count($req->all())==0){
             $anggota = "";
             $buku = "";            
@@ -24,7 +27,13 @@ class TransaksiControl extends Controller
             $buku = DB::select("select tb_koleksi_buku.kd_koleksi,tb_koleksi_buku.no_induk_buku,tb_buku.judul from tb_koleksi_buku,tb_buku WHERE tb_koleksi_buku.kd_buku=tb_buku.kd_buku AND tb_koleksi_buku.status = 0");
         }
 
-        return view('form.frm_peminjaman',compact('anggota','buku'));
+        return view('form.frm_peminjaman',compact('anggota','buku','tampil'));
+    }
+
+    function Pinjem(){
+        $tampil = MTampil::all();
+        dd($tampil);
+        return view('form.frm_peminjaman',compact(['tampil']));
     }
 
     function save_peminjaman(Request $req){

@@ -11,6 +11,13 @@ Ini adalah Dashboard
 @section('content')
  <!-- Main content -->
  <section class="content">
+ @if (session('status'))
+  <div class="alert alert-success" role="alert">
+      {{ session('status') }}
+  </div>
+@endif
+
+You are logged in! Welcome {{ auth()->user()->username }}
     <!-- BOX PALING ATASS -->
       <!-- Small boxes (Stat box) -->
       <div class="row">

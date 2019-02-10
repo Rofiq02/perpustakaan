@@ -67,6 +67,36 @@ active
     </div>
 </div>
 
+<!-- LAPORAN DATA PINJAM-->
+<div class="box">
+        <div class="box-header">
+        <table id="example1" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                  <th>#</th>
+                  <th>No Pinjam</th>
+                  <th>Tanggal Pinjam</th>
+                  <th>Tanggal Kembali</th>
+                  <th>Denda</th>
+                  <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($tampil as $rsTam)
+            <tr>
+                  <td>{{ $rsTam->kd_pinjam }}</td>
+                  <td>{{ $rsTam->no_pinjam }}</td>
+                  <td>{{ $rsTam->tgl_pinjam }}</td>
+                  <td>{{ $rsTam->tgl_kembali }}</td>
+                  <td>{{ $rsTam->denda }}</td>
+                  <td>{{ $rsTam->status }}</td>
+            </tr>
+                @endforeach
+            </tbody>
+        </table>
+        </div>
+    </div>
+
 @if($buku!="")
 <!-- List Data Buku -->
 <div class="modal modal-default fade" id="m-buku">
@@ -107,5 +137,8 @@ active
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+
+
 @endif
 @stop

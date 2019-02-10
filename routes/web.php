@@ -82,6 +82,7 @@ Route::group(["middleware"=>['auth']],function(){
     // Transaksi
     Route::post('/trans/peminjaman','TransaksiControl@peminjaman');
     Route::get('/trans/peminjaman','TransaksiControl@peminjaman');
+    Route::get('/tampil','TransaksiControl@tampil');
     Route::post('/trans/peminjaman/save','TransaksiControl@save_peminjaman');
 
 
@@ -101,8 +102,17 @@ Route::group(["middleware"=>['auth']],function(){
     //dashboard
     Route::get('/dashboard','DashboardControl@jumlah_buku');
 
+ 
+
 });
 
-    Auth::routes();
+ //admins
+ Route::get('/admins/login', 'AdminLoginController@showLoginForm')->name('admins.loginform');
+ Route::get('/admins/register', 'AdminLoginController@showRegisterForm')->name('admins.registerform');
+ Route::post('/admins/login', 'AdminLoginController@login')->name('admins.login');
+ Route::post('/admins/register', 'AdminLoginController@register')->name('admins.register');
+ Route::get('/admins/dashboard', 'AdminLoginController@index')->middleware('auth:admins');
+ Route::get('/admins/logout', 'AdminLoginController@logout')->name('admins.logout');
 
+    Auth::routes();
 
