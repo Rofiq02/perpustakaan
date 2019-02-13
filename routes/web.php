@@ -95,6 +95,9 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('/report/anggota','ReportControl@rpt_anggota');
     Route::get('/report/buku','ReportControl@rpt_data_buku');
     Route::get('/report/buku/tersedia','ReportControl@rpt_data_buku_tersedia');
+    Route::get('/report/buku/dipinjam','ReportControl@rpt_data_buku_dipinjam');
+    Route::get('/report/buku/rusak','ReportControl@rpt_data_buku_rusak');
+    Route::get('/report/buku/hilang','ReportControl@rpt_data_buku_hilang');
     Route::get('/report/qrcode_buku','ReportControl@rpt_QRCode_Buku');
 
     //dashboard

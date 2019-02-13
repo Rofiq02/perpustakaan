@@ -128,7 +128,10 @@
       <ul class="treeview-menu">
         <li><a href="{{ url('report/anggota') }}" target="blank">Laporan Anggota</a></li>
         <li><a href="{{ url('report/buku') }}" target="blank">Laporan Data Buku</a></li>
-        <li><a href="{{ url('report/buku/tersedia') }}" target="blank">Laporan Data Buku Tersedia</a></li>
+        <li><a href="{{ url('report/buku/tersedia') }}" target="blank">Laporan Buku Tersedia</a></li>
+        <li><a href="{{ url('report/buku/dipinjam') }}" target="blank">Laporan Buku Dipinjam</a></li>
+        <li><a href="{{ url('report/buku/rusak') }}" target="blank">Laporan Buku Rusak</a></li>
+        <li><a href="{{ url('report/buku/hilang') }}" target="blank">Laporan Buku Hilang</a></li>
         <li><a href="{{ url('report/qrcode_buku') }}" target="blank">QR Code Buku</a></li>
       </ul>
     </li>

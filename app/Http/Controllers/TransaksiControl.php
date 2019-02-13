@@ -17,7 +17,7 @@ class TransaksiControl extends Controller
     //
     function peminjaman(Request $req){
         
-        $tampil = MTampil::all();
+        $tampil = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_koleksi_buku.status from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak and status = 0');
         // dd($tampil);
         if(count($req->all())==0){
             $anggota = "";
@@ -105,6 +105,7 @@ class TransaksiControl extends Controller
 
    
     function pengembalian(Request $req){
+        $tampil = DB::select('select tb_peminjaman.no_pinjam,tb_anggota.nama,tb_buku.judul,tb_peminjaman.tgl_pinjam,tb_peminjaman.tgl_kembali,tb_peminjaman.denda,tb_peminjaman.status from tb_peminjaman,tb_anggota,tb_buku,tb_koleksi_buku where tb_peminjaman.no_anggota=tb_anggota.no_anggota and tb_peminjaman.no_induk_buku=tb_koleksi_buku.no_induk_buku and tb_koleksi_buku.kd_buku=tb_buku.kd_buku and tb_peminjaman.status = 1');
         if(count($req->all())==0){
             $pinjam = "";            
         } else {            
@@ -114,7 +115,7 @@ class TransaksiControl extends Controller
             AND tb_koleksi_buku.kd_buku=tb_buku.kd_buku AND tb_peminjaman.status=0 AND tb_peminjaman.no_pinjam='".$req->get('no_pinjam')."'");
         }        
 
-        return view('form/frm_pengembalian',compact('pinjam'));
+        return view('form/frm_pengembalian',compact('pinjam','tampil'));
     }
 
     function save_pengembalian(Request $req){         

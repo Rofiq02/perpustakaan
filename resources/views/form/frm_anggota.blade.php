@@ -84,6 +84,12 @@ Form Anggota
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="kota" placeholder="Kota" name="kota" value="{{ $anggota['kota'] }}">
                         </div>
+                    </div>   
+                    <div class="form-group">
+                        <label for="pekerjaan" class="col-sm-2 control-label">Pekerjaan</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan" name="pekerjaan" value="{{ $anggota['pekerjaan'] }}">
+                        </div>
                     </div>                        
                     <div class="form-group">
                         <label for="telp" class="col-sm-2 control-label">Telepon</label>

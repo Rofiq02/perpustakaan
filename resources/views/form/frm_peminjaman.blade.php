@@ -73,23 +73,21 @@ active
         <table id="example1" class="table table-bordered table-hover">
             <thead>
                 <tr>
-                  <th>#</th>
-                  <th>No Pinjam</th>
-                  <th>Tanggal Pinjam</th>
-                  <th>Tanggal Kembali</th>
-                  <th>Denda</th>
+                  <th>no_induk_buku</th>
+                  <th>Judul</th>
+                  <th>Nama Kategori</th>
+                  <th>Nama Rak</th>
                   <th>Status</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($tampil as $rsTam)
             <tr>
-                  <td>{{ $rsTam->kd_pinjam }}</td>
-                  <td>{{ $rsTam->no_pinjam }}</td>
-                  <td>{{ $rsTam->tgl_pinjam }}</td>
-                  <td>{{ $rsTam->tgl_kembali }}</td>
-                  <td>{{ $rsTam->denda }}</td>
-                  <td>{{ $rsTam->status }}</td>
+                  <td>{{ $rsTam->no_induk_buku }}</td>
+                  <td>{{ $rsTam->judul }}</td>
+                  <td>{{ $rsTam->nama_kategori }}</td>
+                  <td>{{ $rsTam->nama_rak }}</td>
+                  <td>{{ ($rsTam->status==0 ? "Tersedia" : "" ) }}</td>
             </tr>
                 @endforeach
             </tbody>

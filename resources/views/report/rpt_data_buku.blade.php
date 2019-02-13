@@ -33,14 +33,14 @@
 
 <table>
     <tr class="title">
-        <td width=3%>#</td>
-        <td width=23%>judul</td>
-        <td width=17%>Pengarang</td>
-        <td width=22%>Penerbit</td>
-        <td width=10%>Kategori</td>
-        <td width=5%>Halaman</td>
-        <td width=5%>Edisi</td>
-        <td width=15%>ISBN</td>
+        <td width=3% style=text-align:center;>#</td>
+        <td width=23% style=text-align:center;>judul</td>
+        <td width=17% style=text-align:center;>Pengarang</td>
+        <td width=22% style=text-align:center;>Penerbit</td>
+        <td width=10% style=text-align:center;>Kategori</td>
+        <td width=5% style=text-align:center;>Halaman</td>
+        <td width=5% style=text-align:center;>Edisi</td>
+        <td width=15% style=text-align:center;>ISBN</td>
     </tr>
     @foreach($buku as $rsBuku)
     <tr>

@@ -85,4 +85,37 @@ active
         @endif
     </div>
 </div>
+
+
+            <!-- LAPORAN DATA PINJAM-->
+            <div class="box">
+        <div class="box-header">
+        <table id="example1" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                  <th>No Pinjam</th>
+                  <th>Nama Anggota</th>
+                  <th>Judul Buku</th>
+                  <th>Tanggal Pinjam</th>
+                  <th>Tanggal Kembali</th>
+                  <th>Denda</th>
+                  <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($tampil as $rsTam)
+            <tr>
+                  <td>{{ $rsTam->no_pinjam }}</td>
+                  <td>{{ $rsTam->nama }}</td>
+                  <td>{{ $rsTam->judul }}</td>
+                  <td>{{ $rsTam->tgl_pinjam }}</td>
+                  <td>{{ $rsTam->tgl_kembali }}</td>
+                  <td>{{ $rsTam->denda }}</td>
+                  <td>{{ ($rsTam->status==1 ? "Dipinjam" : "" ) }}</td>
+            </tr>
+                @endforeach
+            </tbody>
+        </table>
+        </div>
+    </div>
 @stop
