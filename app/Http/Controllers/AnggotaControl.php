@@ -83,10 +83,17 @@ class AnggotaControl extends Controller
        return view('form.frm_anggota',compact("anggota"));
    }
 
+   
     function hapus($id){
         //menghapus data berdasarkan id yang dipilih
         DB::table('tb_anggota')->where('kd_anggota',$id)->delete();
 
         return redirect('/anggota');
     }
+
+    function print($id){
+        $anggota = MAnggota::where("kd_anggota",$id)->first();
+    
+           return view('form.frm_anggota_print',compact("anggota"));
+        }
 }

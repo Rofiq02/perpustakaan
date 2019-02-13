@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->integer('status');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('level');
+            
         });
     }
 

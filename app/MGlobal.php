@@ -47,4 +47,15 @@ class MGlobal extends Model
 
         return $nama;
     }
+
+    public static function Get_Rak($kd_rak){
+        $rak = DB::table('tb_rak')->where('kd_rak',$kd_rak)->first();
+        if($rak!=""){
+            $nama = $rak->nama_rak;
+        } else{
+            $nama = "-";
+        }
+
+        return $nama;
+    }
 }

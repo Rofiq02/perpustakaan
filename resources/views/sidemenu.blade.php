@@ -7,7 +7,7 @@
   <!-- Sidebar user panel (optional) -->
   <div class="user-panel">
     <div class="pull-left image">
-      <img src="{{ asset('img/avatar5.png') }}" class="img-circle" alt="User Image">
+      <img src="{{ Auth::user()->avatar =="" ? asset('img/avatar5.png') : asset('img/'.Auth::user()->avatar) }}" class="img-circle" alt="User Image">
     </div>
     <div class="pull-left info">
       <p>{{ Auth::user() !="" ? Auth::user()->name : "" }}</p>
@@ -56,6 +56,18 @@
         <li><a href="{{ url('anggota') }}">Data Anggota</a></li>
       </ul>
     </li>
+    <li class="treeview">
+      <a href="#"><i class="fa fa-user"></i> <span>Users</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="{{ url('user/add') }}" target="blank">Add New</a></li>
+        <li><a href="{{ url('user') }}">Data User</a></li>
+      </ul>
+    </li>    
+
   <li class="treeview @yield('ac-kategori')">
       <a href="{{ url('kategori') }}"><i class="fa fa-tags"></i> <span>Kategori</span>
         <span class="pull-right-container">
@@ -116,6 +128,7 @@
       <ul class="treeview-menu">
         <li><a href="{{ url('report/anggota') }}" target="blank">Laporan Anggota</a></li>
         <li><a href="{{ url('report/buku') }}" target="blank">Laporan Data Buku</a></li>
+        <li><a href="{{ url('report/buku/tersedia') }}" target="blank">Laporan Data Buku Tersedia</a></li>
         <li><a href="{{ url('report/qrcode_buku') }}" target="blank">QR Code Buku</a></li>
       </ul>
     </li>

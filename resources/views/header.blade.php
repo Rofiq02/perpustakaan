@@ -156,14 +156,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{ asset('img/avatar5.png') }}" class="user-image" alt="User Image">
+              <img src="{{ Auth::user()->avatar =="" ? asset('img/avatar5.png') : asset('img/'.Auth::user()->avatar) }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs"> {{ Auth::user() !="" ? Auth::user()->name : "" }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{ asset('img/avatar5.png') }}" class="img-circle" alt="User Image">
+                <img src="{{ Auth::user()->avatar =="" ? asset('img/avatar5.png') : asset('img/'.Auth::user()->avatar) }}" class="img-circle" alt="User Image">
 
                 <p>
                 {{ Auth::user() !="" ? Auth::user()->name : "" }}
@@ -188,7 +188,7 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="profil" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="logout" class="btn btn-default btn-flat">Sign out</a>

@@ -15,11 +15,9 @@
      return view("auth.login");
 });
 
-Route::group(["middleware"=>['auth']],function(){
+Route::group(['middleware' => ['isAdmin']], function() {
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
+   
 
 
 
@@ -30,6 +28,7 @@ Route::group(["middleware"=>['auth']],function(){
     Route::get('/anggota/edit/{id}','AnggotaControl@edit');
     Route::get('/anggota/hapus/{id}','AnggotaControl@hapus');
     Route::post('/anggota/update','AnggotaControl@update');
+    Route::get('/anggota/print/{id}','AnggotaControl@print');
 
     //buku
     Route::get('buku','BukuControl@index');
@@ -90,29 +89,58 @@ Route::group(["middleware"=>['auth']],function(){
     Route::get('/trans/pengembalian','TransaksiControl@pengembalian');
     Route::post('/trans/pengembalian/save','TransaksiControl@save_pengembalian');
 
-    //logout
-    Auth::routes();
-    Route::get('logout', 'Auth\LoginController@logout');
+   
 
     //Report
     Route::get('/report/anggota','ReportControl@rpt_anggota');
     Route::get('/report/buku','ReportControl@rpt_data_buku');
+    Route::get('/report/buku/tersedia','ReportControl@rpt_data_buku_tersedia');
     Route::get('/report/qrcode_buku','ReportControl@rpt_QRCode_Buku');
 
     //dashboard
     Route::get('/dashboard','DashboardControl@jumlah_buku');
 
+     // your routes
+     Route::get('user','UsersControl@index');
+     Route::get('user/add','UsersControl@add');
+     Route::get('user/edit/{id}','UsersControl@edit');
+     Route::post('user/save','UsersControl@save');
+ 
+
  
 
 });
 
- //admins
- Route::get('/admins/login', 'AdminLoginController@showLoginForm')->name('admins.loginform');
- Route::get('/admins/register', 'AdminLoginController@showRegisterForm')->name('admins.registerform');
- Route::post('/admins/login', 'AdminLoginController@login')->name('admins.login');
- Route::post('/admins/register', 'AdminLoginController@register')->name('admins.register');
- Route::get('/admins/dashboard', 'AdminLoginController@index')->middleware('auth:admins');
- Route::get('/admins/logout', 'AdminLoginController@logout')->name('admins.logout');
+Route::group(['middleware' => ['isOperator']], function() {
+    // Anggota
+    Route::get('/anggota','AnggotaControl@index');
+    // Buku
+    Route::get('/buku','BukuControl@index');
+    // Koleksi
+    Route::get('/koleksi','KoleksiControl@index');   
+    // Transaksi
+    Route::get('/trans/peminjaman','TransaksiControl@peminjaman');
+    Route::post('/trans/peminjaman','TransaksiControl@peminjaman');
+    Route::post('/trans/peminjaman/save','TransaksiControl@save');
+
+    Route::post('/trans/pengembalian','TransaksiControl@pengembalian');
+    Route::get('/trans/pengembalian','TransaksiControl@pengembalian');
+    Route::post('/trans/pengembalian/save','TransaksiControl@save_pengembalian');
+
+    Route::get('report/qrcode_buku','ReportControl@QR_Code_Buku');
+    Route::get('report/qrcode_anggota','ReportControl@QR_Code_Anggota');
+
+    Route::get('report/cetak','ReportControl@cetak');
+    Route::get('report/cetak_anggota','ReportControl@cetak_anggota');    
+});
+
+
 
     Auth::routes();
+     //logout
+     Auth::routes();
+     Route::get('logout', 'Auth\LoginController@logout');
 
+ //dashboard
+   //dashboard
+ Route::get('/dashboard','DashboardControl@jumlah_buku');
