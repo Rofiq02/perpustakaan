@@ -98,4 +98,5 @@ class AnggotaControl extends Controller
     
            return view('form.frm_anggota_print',compact("anggota"));
         }
+
 }

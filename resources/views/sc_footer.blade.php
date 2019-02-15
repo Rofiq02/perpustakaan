@@ -18,6 +18,8 @@
 <script src="{{ asset('component/fastclick/lib/fastclick.js') }}"></script>
 <!-- Sweet Alert -->
 <script src="{{ asset('component/sweetalert/sweetalert2.min.js') }}"></script>
+<!-- Print Area-->
+<script src="{{ asset('js/jquery.PrintArea.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- Custom JS -->

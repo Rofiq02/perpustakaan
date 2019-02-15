@@ -98,7 +98,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('/report/buku/dipinjam','ReportControl@rpt_data_buku_dipinjam');
     Route::get('/report/buku/rusak','ReportControl@rpt_data_buku_rusak');
     Route::get('/report/buku/hilang','ReportControl@rpt_data_buku_hilang');
-    Route::get('/report/qrcode_buku','ReportControl@rpt_QRCode_Buku');
+    Route::get('/report/qrcode_buku','ReportControl@rpt_QRCode_Buku'); 
 
     //dashboard
     Route::get('/dashboard','DashboardControl@jumlah_buku');
@@ -134,7 +134,8 @@ Route::group(['middleware' => ['isOperator']], function() {
     Route::get('report/qrcode_anggota','ReportControl@QR_Code_Anggota');
 
     Route::get('report/cetak','ReportControl@cetak');
-    Route::get('report/cetak_anggota','ReportControl@cetak_anggota');    
+    Route::get('report/cetak_anggota','ReportControl@cetak_anggota');
+    Route::get('report/print/{id}','ReportControl@rpt_kartu_anggota');      
 });
 
 
