@@ -16,7 +16,12 @@ class DashboardControl extends Controller
         $jumlahbuku = $buku[0]->jumlah;
         $anggota = DB::select('select count(*) as jumlah from tb_anggota');
         $jumlahanggota = $anggota[0]->jumlah;
-        return view('dashboard', compact('jumlahbuku','jumlahanggota'));
+        $pinjam = DB::select('select COUNT(*) AS Jumlah from tb_peminjaman where tgl_pinjam=DATE(NOW())');
+        $harian = $pinjam[0]->Jumlah;
+        $pinjemm = DB::select('select COUNT(*) AS Jumlah from tb_peminjaman where month(tgl_pinjam)=month(curdate())');
+        $bulanan = $pinjemm[0]->Jumlah;
+        return view('dashboard', compact('jumlahbuku','jumlahanggota','harian','bulanan'));
     }
+
 
 }

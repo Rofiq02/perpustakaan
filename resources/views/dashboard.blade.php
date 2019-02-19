@@ -55,14 +55,14 @@ You are logged in! Welcome {{ auth()->user()->username }}
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{ $harian }}</h3>
 
-              <p>Transaksi Pengembalian</p>
+              <p>Peminjaman Harian</p>
             </div>
             <div class="icon">
               <i class="fa fa-shopping-cart"></i>
             </div>
-            <a href="/trans/pengembalian" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/report/peminjaman/harian" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -70,14 +70,14 @@ You are logged in! Welcome {{ auth()->user()->username }}
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{ $bulanan }}</h3>
 
-              <p>Laporan Anggota</p>
+              <p>Peminjaman Bulanan</p>
             </div>
             <div class="icon">
               <i class="fa fa-file-text"></i>
             </div>
-            <a href="/report/anggota" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/report/peminjaman/bulanan" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

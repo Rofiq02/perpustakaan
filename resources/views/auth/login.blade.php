@@ -3,7 +3,7 @@
 <style>
 
       body{
-        background-image:url('img/login.jpg');
+        background-image:url('img/bg-login.jpg');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -39,7 +39,7 @@
         margin: 100px auto;
         border: 1px solid rgba(201,217,207,0.3);
         padding: 20px 15px;
-        box-shadow: 3px 3px 7px #182128;
+        box-shadow: 3px 3px 7px #702b0d;
         max-width: 500px;
         background-color:rgba(201,217,207,0.1);
 
@@ -67,7 +67,7 @@
       </div>
 <form class="text-center border border-light p-5">
 
-    <p class ="h4 mb-4" style="color:white;">Sign in</p>
+    <p class ="h4 mb-4" style="color:white;"><strong>Sign in</strong></p>
 
     <!-- Email -->
     <input id="email" placeholder="Email" type="email" class="form-control mb-4{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -96,19 +96,20 @@
         <div>
             <!-- Forgot password -->
             @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+                <a class="btn btn-link" href="{{ route('password.request') }}" style="color:white;"><strong>
                     {{ __('Forgot Your Password?') }}
+                    </strong>
                 </a>
             @endif
         </div>
     </div>
 
     <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit">{{ __('Login') }}</button>
+    <button class="btn btn-info btn-block my-4" type="submit" style="color:white; background-color:rgba(103,27,3,0.8); border-color:#671b03;"><strong>{{ __('Login') }}</strong></button>
 
     <!-- Register -->
     <p class="not" style="color:white;">Not a member?
-        <a href="{{ route('register') }}">Register</a>
+        <a href="{{ route('register') }}" style="color:white;"><strong>Register</strong></a>
     </p>
 
 </form>

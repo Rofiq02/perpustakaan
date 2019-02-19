@@ -12,6 +12,44 @@ active
     <div class="box">
         <div class="box-header">
             <a href="kategori/add"><button type="button" class="btn bg-green btn-flat margin">Add New</button></a>
+            <!--MULAI -->
+            <div class="container">
+        <div class="row" style="padding-top: 30px">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ url('/kategori/import') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+
+                            @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                            @endif
+
+                            @if (session('error'))
+                                <div class="alert alert-success">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+                            <div class="form-group">
+                                <label for="">File (.xls, .xlsx)</label>
+                                <button type="button" class="btn bg-green btn-flat"><i class="fa fa-print"></i></button>
+                                <input type="file" class="form-control" name="file">
+                                <p class="text-danger">{{ $errors->first('file') }}</p>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-sm">Upload</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+    <!-- TUTUP -->
         <table id="example2" class="table table-bordered table-hover">
             <thead>
                 <tr>

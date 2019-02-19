@@ -38,4 +38,5 @@ class KategoriReq extends FormRequest
             'max' => ':attribute harus diisi maksimal :max karakter',
         ];
     }
+    
 }

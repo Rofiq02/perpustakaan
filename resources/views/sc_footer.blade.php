@@ -18,6 +18,14 @@
 <script src="{{ asset('component/fastclick/lib/fastclick.js') }}"></script>
 <!-- Sweet Alert -->
 <script src="{{ asset('component/sweetalert/sweetalert2.min.js') }}"></script>
+<!-- FLOT CHARTS -->
+<script src="{{ asset('component/Flot/jquery.flot.js') }}"></script>
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<script src="{{ asset('component/Flot/jquery.flot.resize.js') }}"></script>
+<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+<script src="{{ asset('component/Flot/jquery.flot.pie.js') }}"></script>
+<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+<script src="{{ asset('component/Flot/jquery.flot.categories.js') }}"></script>
 <!-- Print Area-->
 <script src="{{ asset('js/jquery.PrintArea.js') }}"></script>
 <!-- AdminLTE App -->

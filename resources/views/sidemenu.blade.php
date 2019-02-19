@@ -132,6 +132,8 @@
         <li><a href="{{ url('report/buku/dipinjam') }}" target="blank">Laporan Buku Dipinjam</a></li>
         <li><a href="{{ url('report/buku/rusak') }}" target="blank">Laporan Buku Rusak</a></li>
         <li><a href="{{ url('report/buku/hilang') }}" target="blank">Laporan Buku Hilang</a></li>
+        <li><a href="{{ url('report/peminjaman/harian') }}" target="blank">Laporan Peminjaman Harian</a></li>
+        <li><a href="{{ url('report/peminjaman/bulanan') }}" target="blank">Laporan Peminjaman Bulanan</a></li>
         <li><a href="{{ url('report/qrcode_buku') }}" target="blank">QR Code Buku</a></li>
       </ul>
     </li>

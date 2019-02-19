@@ -38,7 +38,7 @@ active
                   <td>
                         <a href="/anggota/edit/{{ $rsAngg->kd_anggota }}"><button type="button" class="btn bg-yellow btn-flat"><i class="fa fa-pencil"></i></button></a>
                         <a onclick="return confimation_hapus(this)" link="/anggota/hapus/{{ $rsAngg->kd_anggota }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
-                        <a href="/anggota/print/{{ $rsAngg->kd_anggota }}"><button type="button" class="btn bg-green btn-flat"><i class="fa fa-print"></i></button></a>
+                        <a href="/anggota/print/{{ $rsAngg->kd_anggota }}" target="blank"><button type="button" class="btn bg-green btn-flat"><i class="fa fa-print"></i></button></a>
                     </td>
 
                 </tr>

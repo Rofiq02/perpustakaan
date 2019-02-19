@@ -67,34 +67,6 @@ active
     </div>
 </div>
 
-<!-- LAPORAN DATA PINJAM-->
-<div class="box">
-        <div class="box-header">
-        <table id="example1" class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                  <th>no_induk_buku</th>
-                  <th>Judul</th>
-                  <th>Nama Kategori</th>
-                  <th>Nama Rak</th>
-                  <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($tampil as $rsTam)
-            <tr>
-                  <td>{{ $rsTam->no_induk_buku }}</td>
-                  <td>{{ $rsTam->judul }}</td>
-                  <td>{{ $rsTam->nama_kategori }}</td>
-                  <td>{{ $rsTam->nama_rak }}</td>
-                  <td>{{ ($rsTam->status==0 ? "Tersedia" : "" ) }}</td>
-            </tr>
-                @endforeach
-            </tbody>
-        </table>
-        </div>
-    </div>
-
 @if($buku!="")
 <!-- List Data Buku -->
 <div class="modal modal-default fade" id="m-buku">
@@ -139,4 +111,34 @@ active
 
 
 @endif
+
+<!-- LAPORAN DATA PINJAM-->
+<div class="box">
+        <div class="box-header">
+        <table id="example1" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                  <th>no_induk_buku</th>
+                  <th>Judul</th>
+                  <th>Nama Kategori</th>
+                  <th>Nama Rak</th>
+                  <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($tampil as $rsTam)
+            <tr>
+                  <td>{{ $rsTam->no_induk_buku }}</td>
+                  <td>{{ $rsTam->judul }}</td>
+                  <td>{{ $rsTam->nama_kategori }}</td>
+                  <td>{{ $rsTam->nama_rak }}</td>
+                  <td>{{ ($rsTam->status==0 ? "Tersedia" : "" ) }}</td>
+            </tr>
+                @endforeach
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+
 @stop

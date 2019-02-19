@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\AnggotaReq;
 use Illuminate\Support\Facades\DB;
+use Mpdf\Mpdf;
 use App\MAnggota;
 use App\MGlobal;
 
@@ -93,10 +94,19 @@ class AnggotaControl extends Controller
         return redirect('/anggota');
     }
 
+    
     function print($id){
         $anggota = MAnggota::where("kd_anggota",$id)->first();
-    
-           return view('form.frm_anggota_print',compact("anggota"));
+        return view('form.frm_anggota_print',compact("anggota"));
+
+        // $pdf = new MPdf([
+        //     'orientation'=>"L",
+        //     'format'=>"Folio"
+        // ]);
+
+        // $pdf->WriteHTML($content);
+        // $pdf->Output(public_path().'/Kartu Anggota.pdf','I');
+        // }
         }
 
 }

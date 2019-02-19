@@ -45,6 +45,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('/kategori/edit/{id}','KategoriControl@edit');
     Route::get('/kategori/hapus/{id}','KategoriControl@hapus');
     Route::post('/kategori/update','KategoriControl@update');
+    Route::post('/kategori/import','KategoriControl@storeData');
 
     //penerbit
     Route::get('penerbit','PenerbitControl@index');
@@ -98,7 +99,9 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('/report/buku/dipinjam','ReportControl@rpt_data_buku_dipinjam');
     Route::get('/report/buku/rusak','ReportControl@rpt_data_buku_rusak');
     Route::get('/report/buku/hilang','ReportControl@rpt_data_buku_hilang');
-    Route::get('/report/qrcode_buku','ReportControl@rpt_QRCode_Buku'); 
+    Route::get('/report/peminjaman/harian','ReportControl@rpt_peminjaman_harian');
+    Route::get('/report/peminjaman/bulanan','ReportControl@rpt_peminjaman_bulanan');
+    Route::get('/report/qrcode_buku','ReportControl@code'); 
 
     //dashboard
     Route::get('/dashboard','DashboardControl@jumlah_buku');
@@ -124,13 +127,13 @@ Route::group(['middleware' => ['isOperator']], function() {
     // Transaksi
     Route::get('/trans/peminjaman','TransaksiControl@peminjaman');
     Route::post('/trans/peminjaman','TransaksiControl@peminjaman');
-    Route::post('/trans/peminjaman/save','TransaksiControl@save');
+    Route::post('/trans/peminjaman/save','TransaksiControl@save_peminjaman');
 
     Route::post('/trans/pengembalian','TransaksiControl@pengembalian');
     Route::get('/trans/pengembalian','TransaksiControl@pengembalian');
     Route::post('/trans/pengembalian/save','TransaksiControl@save_pengembalian');
 
-    Route::get('report/qrcode_buku','ReportControl@QR_Code_Buku');
+    Route::get('report/qrcode_buku','ReportControl@code');
     Route::get('report/qrcode_anggota','ReportControl@QR_Code_Anggota');
 
     Route::get('report/cetak','ReportControl@cetak');
