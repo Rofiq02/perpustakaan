@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Excel; //IMPORT CLASS EXCEL
 use App\Imports\KategoriImport; //IMPORT CLASS PRODUCTSIMPORT
+use App\Imports\PenerbitsImport;
 
 class ImportJob implements ShouldQueue
 {
@@ -33,6 +34,12 @@ class ImportJob implements ShouldQueue
     public function handle()
     {
         Excel::import(new KategoriImport, 'public/' . $this->file); //MENJALANKAN PROSES IMPORT
+        unlink(storage_path('app/public/' . $this->file)); //MENGHAPUS FILE EXCEL YANG TELAH DI-UPLOAD
+    }
+
+    public function handle2()
+    {
+        Excel::import(new PenerbitsImport, 'public/' . $this->file); //MENJALANKAN PROSES IMPORT
         unlink(storage_path('app/public/' . $this->file)); //MENGHAPUS FILE EXCEL YANG TELAH DI-UPLOAD
     }
 }

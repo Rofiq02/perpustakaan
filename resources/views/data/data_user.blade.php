@@ -33,7 +33,7 @@ Data User
                     <td>{{ $rsUser->email }}</td>
                     <td>
                         <a href="{{ url('user/edit',$rsUser->id) }}"><button type="button" class="btn bg-yellow btn-flat"><i class="fa fa-pencil"></i></button></a>
-                        <a href="{{ url('user/delete',$rsUser->id) }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
+                        <a href="/user/hapus/{{ $rsUser->id }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
                     </td>
                 </tr>
                 @endforeach

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PengarangReq;
 use Illuminate\Support\Facades\DB;
+use App\Imports\PengarangsImport;
+use App\Jobs\PengarangJob;
+use Excel;
 use App\MGlobal;
 use App\MPengarang;
 
@@ -55,5 +58,25 @@ class PengarangControl extends Controller
         DB::table('tb_pengarang')->where('kd_pengarang',$id)->delete();
 
         return redirect('/pengarang');
+    }
+    public function storeData(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
+    
+        if ($request->hasFile('file')) {
+            //UPLOAD FILE
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs(
+                'public', $filename
+            );
+            
+            //MEMBUAT JOBS DENGAN MENGIRIMKAN PARAMETER FILENAME
+            PengarangJob::dispatch($filename);
+            return redirect()->back()->with(['success' => 'Upload success']);
+        }  
+        return redirect()->back()->with(['error' => 'Please choose file before']);
     }
 }

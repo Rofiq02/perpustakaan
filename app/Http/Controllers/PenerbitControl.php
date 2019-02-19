@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PenerbitReq;
 use Illuminate\Support\Facades\DB;
+use App\Imports\PenerbitsImport;
+use App\Jobs\PenerbitJob;
+use Excel;
 use App\MGlobal;
 use App\MPenerbit;
 
@@ -56,5 +59,26 @@ class PenerbitControl extends Controller
         DB::table('tb_penerbit')->where('kd_penerbit',$id)->delete();
 
         return redirect('/penerbit');
+    }
+
+    public function storeData(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
+    
+        if ($request->hasFile('file')) {
+            //UPLOAD FILE
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs(
+                'public', $filename
+            );
+            
+            //MEMBUAT JOBS DENGAN MENGIRIMKAN PARAMETER FILENAME
+            PenerbitJob::dispatch($filename);
+            return redirect()->back()->with(['success' => 'Upload success']);
+        }  
+        return redirect()->back()->with(['error' => 'Please choose file before']);
     }
 }

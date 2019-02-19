@@ -54,6 +54,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('/penerbit/edit/{id}','PenerbitControl@edit');
     Route::get('/penerbit/hapus/{id}','PenerbitControl@hapus');
     Route::post('/penerbit/update','PenerbitControl@update');
+    Route::post('/penerbit/import','PenerbitControl@storeData');
 
     //koleksi
     Route::get('koleksi','KoleksiControl@index');
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('/koleksi/edit/{id}','KoleksiControl@edit');
     Route::get('/koleksi/hapus/{id}','KoleksiControl@hapus');
     Route::post('/koleksi/update','KoleksiControl@update');
+    Route::post('/koleksi/import','KoleksiControl@storeData');
 
     //Rak
     Route::get('rak','RakControl@index');
@@ -70,6 +72,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('/rak/edit/{id}','RakControl@edit');
     Route::get('rak/hapus/{id}','RakControl@hapus');
     Route::post('/rak/update','RakControl@update');
+    Route::post('/rak/import','RakControl@storeData');
 
     //Pengarang
     Route::get('pengarang','PengarangControl@index');
@@ -78,6 +81,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('/pengarang/edit/{id}','PengarangControl@edit');
     Route::get('pengarang/hapus/{id}','PengarangControl@hapus');
     Route::post('/pengarang/update','PengarangControl@update');
+    Route::post('/pengarang/import','PengarangControl@storeData');
 
     // Transaksi
     Route::post('/trans/peminjaman','TransaksiControl@peminjaman');
@@ -110,6 +114,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
      Route::get('user','UsersControl@index');
      Route::get('user/add','UsersControl@add');
      Route::get('user/edit/{id}','UsersControl@edit');
+     Route::get('user/hapus/{id}','UsersControl@delete');
      Route::post('user/save','UsersControl@save');
  
 

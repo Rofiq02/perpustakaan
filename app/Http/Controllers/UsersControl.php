@@ -37,7 +37,7 @@ class UsersControl extends Controller
         if($req->get('id')==""){
 
             // Simpan Ke Tabel Anggota
-            $anggota = new User([
+            $user = new User([
                 'name' => $req->get('name'),
                 'alamat' => $req->get('alamat'),
                 'telp' => $req->get('telp'),
@@ -46,10 +46,10 @@ class UsersControl extends Controller
                 'level' => $req->get('level'),
                 'avatar' => $nama_foto,
             ]);
-            $anggota->save();
+            $user->save();
         } else {
-            $anggota = MAnggota::where("kd_anggota",$req->get('kd_anggota'));  
-            $anggota->update([
+            $user = User::where("id",$req->get('id'));  
+            $user->update([
                 'name' => $req->get('name'),
                 'alamat' => $req->get('alamat'),
                 'telp' => $req->get('telp'),
@@ -69,8 +69,8 @@ class UsersControl extends Controller
     }
 
     function delete($id){
-        $user = User::where("id",$id);        
-        $user->delete();
+        DB::table('users')->where('id',$id)->delete();
+
         return redirect('user');
     }  
 }

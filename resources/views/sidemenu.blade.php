@@ -57,7 +57,7 @@
       </ul>
     </li>
     <li class="treeview">
-      <a href="#"><i class="fa fa-user"></i> <span>Users</span>
+      <a href="{{ url('user') }}"><i class="fa fa-user"></i> <span>Users</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>

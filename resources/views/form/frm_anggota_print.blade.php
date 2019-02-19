@@ -26,9 +26,9 @@ Kartu Anggota
     <h4 class="s" style="margin-left:160px; margin-top:55px; font-size:12px; position:absolute; color:#0e2024;"><strong>{{ $anggota->nama }}</strong></h4>
     <h5 class="t" style=" margin-left:160px; margin-top:67px; font-size:10px; position:absolute; color:#0e2024;"><strong>{{ $anggota->pekerjaan }}</strong></h5>
     <img src="{{ asset('img/bg-card3.jpg') }}" style="width:80mm; height:53mm;"/>
-    <div class="no" style=" margin-left:205px; margin-top:-75px; position:absolute; font-size:14px; font-style:arial;"><strong style="color:white;">{{ $anggota->no_anggota }}</strong></div>
+    <div class="no" style=" margin-left:205px; margin-top:-75px; position:absolute; font-size:14px; font-style:arial;"><strong style="color:white !important;">{{ $anggota->no_anggota }}</strong></div>
     <div class="tanggal" style="margin-left:200px; margin-top:-8; position:absolute;
-        font-size:6px;"><strong style="color:white;">{{ date('d / m / y',strtotime('+5 years')) }}</strong></div>
+        font-size:6px;"><strong style="color:white !important;">{{ date('d / m / y',strtotime('+5 years')) }}</strong></div>
 </div>
 
 
