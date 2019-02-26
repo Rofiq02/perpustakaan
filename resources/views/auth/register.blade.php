@@ -14,7 +14,7 @@
       }
 */
  body{
-        background-image:url('img/login.jpg');
+        background-image:url('img/bg-login.jpg');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;

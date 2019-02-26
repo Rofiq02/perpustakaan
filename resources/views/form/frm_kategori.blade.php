@@ -44,7 +44,7 @@ Form kategori
                     </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <button onclick="return confimation_simpan(this)" type="submit" class="btn btn-primary pull-right">SAVE</button>
+                    <button type="submit" class="btn btn-primary pull-right">SAVE</button>
                 </div>                   
             </div>
         </div>       

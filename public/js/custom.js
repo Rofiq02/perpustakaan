@@ -9,8 +9,8 @@ $(function () {
       'autoWidth'   : false
     })
 
-    //Date picker
-  $('#datepicker').datepicker({
+   //Date picker
+   $('#datepicker').datepicker({
     autoclose: true
   })
 
@@ -106,4 +106,7 @@ $(function () {
     })
     window.location = $(target).attr("link");
   }
+    
+  
+  
 

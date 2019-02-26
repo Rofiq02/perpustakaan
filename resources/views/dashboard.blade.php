@@ -4,9 +4,6 @@
 Dashboard
 @stop
 
-@section('subjudul')
-Ini adalah Dashboard
-@stop
 
 @section('content')
  <!-- Main content -->
@@ -56,11 +53,12 @@ You are logged in! Welcome {{ auth()->user()->username }}
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3>{{ $harian }}</h3>
-
-              <p>Peminjaman Harian</p>
+    
+              <td>Peminjaman</td><br>
+              <td>Harian</td>
             </div>
             <div class="icon">
-              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-line-chart"></i>
             </div>
             <a href="/report/peminjaman/harian" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -72,10 +70,10 @@ You are logged in! Welcome {{ auth()->user()->username }}
             <div class="inner">
               <h3>{{ $bulanan }}</h3>
 
-              <p>Peminjaman Bulanan</p>
+              <td>Peminjaman</td> <br><td>Bulanan</td>
             </div>
             <div class="icon">
-              <i class="fa fa-file-text"></i>
+              <i class="fa fa-bar-chart"></i>
             </div>
             <a href="/report/peminjaman/bulanan" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>

@@ -24,6 +24,7 @@ active
         <div class="box-header">
             <form action="{{ url('/kategori/import') }}" method="post" enctype="multipart/form-data">
             <a href="kategori/add"><button type="button" class="btn bg-green btn-flat margin"><i class="fa fa-plus"></i></button></a>
+            <button class="btn btn-primary btn-sm">Upload Excel</button>
                 @csrf
 
                 @if (session('success'))
@@ -37,10 +38,11 @@ active
                         {{ session('error') }}
                     </div>
                 @endif
-                
-                <input type="file" name="file" id="file" class="inputfile"  />
-                <label for="file" class="btn bg-yellow btn-flat"><i class="fa fa-upload"></i></label>
-            </form>
+                <div class="form-group">
+                        <label for="">File (.xls, .xlsx)</label>
+                        <input type="file" class="form-control" name="file">
+                        <p class="text-danger">{{ $errors->first('file') }}</p>
+                    </div>
             <!--MULAI -->
     <!-- TUTUP -->
         <table id="example2" class="table table-bordered table-hover">
@@ -59,7 +61,7 @@ active
                   <td>{{ $rsKat['singkatan']}}</td>
                   <td>
                         <a href="/kategori/edit/{{ $rsKat->kd_kategori }}"><button type="button" class="btn bg-yellow btn-flat"><i class="fa fa-pencil"></i></button></a>
-                        <a href="/kategori/hapus/{{ $rsKat->kd_kategori }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
+                        <a onclick="return confimation_hapus(this)" link="/kategori/hapus/{{ $rsKat->kd_kategori }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
                   </td>
             </tr>
                 @endforeach

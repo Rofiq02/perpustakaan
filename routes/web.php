@@ -156,3 +156,10 @@ Route::group(['middleware' => ['isOperator']], function() {
  //dashboard
    //dashboard
  Route::get('/dashboard','DashboardControl@jumlah_buku');
+
+ // Mobile Server
+ Route::get('/mobile/get_buku','MobileControl@get_Buku');
+ Route::get('/mobile/get_koleksi/{kd_buku}','MobileControl@get_Koleksi');
+ Route::post('mobile/registrasi','MobileControl@registrasi');
+
+
