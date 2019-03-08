@@ -161,5 +161,7 @@ Route::group(['middleware' => ['isOperator']], function() {
  Route::get('/mobile/get_buku','MobileControl@get_Buku');
  Route::get('/mobile/get_koleksi/{kd_buku}','MobileControl@get_Koleksi');
  Route::post('mobile/registrasi','MobileControl@registrasi');
+ Route::post('mobile/login','MobileControl@login');
+ Route::get('/mobile/get_pinjam/{status}','MobileControl@get_pinjam');
 
 

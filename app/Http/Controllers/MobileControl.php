@@ -40,7 +40,7 @@ class MobileControl extends Controller
         $new = $req->json()->all();
         $token = csrf_token();
         $user = new User([
-            "name"=>$new ['name'],
+            "name"=>$new ['nama'],
             "alamat"=>$new['alamat'],
             "telp"=>$new['telp'],
             "email"=>$new['email'],
@@ -50,9 +50,37 @@ class MobileControl extends Controller
         ]);
 
         if($user->save()){
-            echo json_encode(["type"=>"succes","msg"=>"Data Success Disimpan ! ".csrf_token()]);
+            echo json_encode(["type"=>"success","msg"=>"Data Success Disimpan ! ".csrf_token()]);
         }else{
             echo json_encode(["type"=>"error","msg"=>"Data Success Disimpan ! ". csrf_token()]);
         }
+    }
+
+    function login(Request $req){
+        header ('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Headers: Authorization, Content-Type');
+
+        $login = $req->json()->all();
+
+        //cek email
+        $ceklogin = DB::table('users')->where('email',$login['email'])->first();
+        if($ceklogin){
+            if(Hash::check($login["password"],$ceklogin->password)){
+                $profile = DB::select('SELECT tb_anggota.kd_anggota,users.email,users.level,tb_anggota.no_anggota,users.name,tb_anggota.tempat,tb_anggota.tgl_lahir,tb_anggota.jk,users.alamat,tb_anggota.kota,users.telp,tb_anggota.foto,tb_anggota.`status` from users left join tb_anggota on tb_anggota.email = users.email WHERE users.email="'.$login['email'].'"');
+                echo json_encode(["type"=>"success","profile"=>$ceklogin]);
+            } else {
+                echo json_encode(["type"=>"error","msg"=>"Password Invalid !"]);
+            }
+        }else{
+            echo json_encode(["type"=>"error","msg"=>"Email Invalid !"]);
+        }
+    }
+
+    function get_pinjam($status){
+        header ('Access-Control-Allow-Origin: *');
+
+        $pinjam = DB::select('select no_pinjam,tgl_pinjam,tgl_kembali from tb_peminjaman where status = "'.$status.'" group by no_pinjam,tgl_pinjam,tgl_kembali');
+
+        echo json_encode($pinjam);
     }
 }
